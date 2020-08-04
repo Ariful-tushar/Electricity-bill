@@ -2,8 +2,8 @@ import { getInputValue } from "./output";
 
 export default class Bill {
   constructor(past, present) {
-    this.past = getInputValue().x;
-    this.present = getInputValue().y;
+    this.past = past;
+    this.present = present;
   }
 
   priceList() {
