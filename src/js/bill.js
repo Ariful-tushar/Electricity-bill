@@ -1,5 +1,3 @@
-import { getInputValue } from "./output";
-
 export default class Bill {
   constructor(past, present) {
     this.past = past;
@@ -20,11 +18,12 @@ export default class Bill {
   billTotal() {
     console.log(this.present);
     console.log(this.past);
-    const unitsTotal = parseFloat(this.present) - parseFloat(this.past);
+    const unitsTotal = this.present - this.past;
+    let bill = 0;
     console.log(unitsTotal);
 
     if (unitsTotal > 600) {
-      const bill =
+      bill =
         this.priceList().lessThen75 +
         this.priceList().lessThen200 +
         this.priceList().lessThen300 +
@@ -33,7 +32,7 @@ export default class Bill {
         (unitsTotal - 600) * 9.98;
       console.log(bill);
     } else if (unitsTotal > 400 && unitsTotal <= 600) {
-      const bill =
+      bill =
         this.priceList().lessThen75 +
         this.priceList().lessThen200 +
         this.priceList().lessThen300 +
@@ -41,24 +40,27 @@ export default class Bill {
         (unitsTotal - 400) * 8.7;
       console.log(bill);
     } else if (unitsTotal > 300 && unitsTotal <= 400) {
-      const bill =
+      bill =
         this.priceList().lessThen75 +
         this.priceList().lessThen200 +
         this.priceList().lessThen300 +
         (unitsTotal - 300) * 5.63;
       console.log(bill);
     } else if (unitsTotal > 200 && unitsTotal <= 300) {
-      const bill =
+      bill =
         this.priceList().lessThen75 +
         this.priceList().lessThen200 +
         (unitsTotal - 200) * 5.36;
       console.log(bill);
     } else if (unitsTotal > 75 && unitsTotal <= 200) {
-      const bill = this.priceList().lessThen75 + (unitsTotal - 75) * 5.14;
+      bill = this.priceList().lessThen75 + (unitsTotal - 75) * 5.14;
       console.log(bill);
     } else if (unitsTotal > 0 && unitsTotal <= 75) {
-      const bill = unitsTotal * 3.8;
+      bill = unitsTotal * 3.8;
       console.log(bill);
     }
+    const outputs = [unitsTotal.toFixed(2), bill.toFixed(2)];
+
+    return outputs;
   }
 }

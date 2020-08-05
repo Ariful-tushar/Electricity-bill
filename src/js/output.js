@@ -1,24 +1,17 @@
-//Get inputs
+import { elements } from "./base";
+
+//Get the input elements
 export const getInputValue = () => {
-  // Selecting the input element and get its value
-  const inputValPast = document.getElementById("myInputPast").value;
+  // Selecting the input element and get their value
+  const inputValPast = elements.previousInput.value;
+  const inputValPresent = elements.presentInput.value;
 
-  const inputValPresent = document.getElementById("myInputPresent").value;
-
-  document.getElementById(
-    "inputvalPast"
-  ).innerHTML = `You entered: ${inputValPast}`;
-
-  document.getElementById(
-    "inputvalPresent"
-  ).innerHTML = `You entered: ${inputValPresent}`;
-
-  const values = [inputValPast, inputValPresent];
-
+  //convert input values to float integer and return as a list
+  const values = [
+    parseFloat(inputValPast).toFixed(2),
+    parseFloat(inputValPresent).toFixed(2),
+  ];
   return values;
 };
 
-export const clearInput = () => {
-  document.getElementById("myInputPast").value = "";
-  document.getElementById("myInputPresent").value = "";
-};
+//clear the input fileds
