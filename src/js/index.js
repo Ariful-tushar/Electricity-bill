@@ -2,7 +2,7 @@ import { main } from "./main";
 import { elements } from "./base";
 import { clearAll } from "./clear";
 
-const calTotal = () => {
+const calculateTotal = () => {
   elements.submit.addEventListener("click", () => {
     clearAll();
     main();
@@ -15,4 +15,4 @@ const calTotal = () => {
   });
 };
 
-calTotal();
+calculateTotal();
